@@ -1,0 +1,53 @@
+#################
+# Listing tasks #
+#################
+GET http://127.0.0.1:8000/tasks HTTP/1.1
+Accpet: application/json
+
+###################
+# Filtering tasks #
+###################
+GET http://127.0.0.1:8000/tasks?status=true HTTP/1.1
+Accpet: application/json
+
+##################
+# Getting a task #
+##################
+GET http://127.0.0.1:8000/tasks/625ef774-7751-4a5e-a66b-afc1c8d7867e HTTP/1.1
+Accpet: application/json
+
+##################
+# Inserting task #
+##################
+POST http://127.0.0.1:8000/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+    "description": "Teste de insert",
+    "priority": 3.0,
+    "complexity": 1.0
+}
+
+################
+# Closing task #
+################
+PATCH http://127.0.0.1:8000/tasks/625ef774-7751-4a5e-a66b-afc1c8d7867e HTTP/1.1
+Content-Type: application/json
+
+{
+    "status": true
+}
+
+####################
+# Updatting a task #
+####################
+PUT http://127.0.0.1:8000/tasks/625ef774-7751-4a5e-a66b-afc1c8d7867e HTTP/1.1
+Accpet: application/json
+
+{
+    "description": "Gravar mini-curso de Python WEB atualizado",
+    "priority": 10,
+    "complexity": 4,
+    "created_at": "2021-08-20T17:55:07",
+    "status": false
+}

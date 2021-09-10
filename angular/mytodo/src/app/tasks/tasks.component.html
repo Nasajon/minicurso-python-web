@@ -1,0 +1,8 @@
+<h2>My Tasks</h2>
+<ul class="tasks">
+    <li *ngFor="let task of tasks">
+        <a routerLink="/tasks/{{task.id}}">
+            <span class="badge">{{task.priority}}</span> {{task.description}}
+        </a>
+    </li>
+</ul>

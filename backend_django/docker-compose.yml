@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+    postgres:
+        image: postgres:11.5
+        ports: 
+           - "5440:5432"
+        volumes:
+           - $PWD/database:/docker-entrypoint-initdb.d/
+        environment:
+           - "POSTGRES_DB=teste_db"
+           - "POSTGRES_USER=postgres"
+           - "POSTGRES_PASSWORD=postgres"

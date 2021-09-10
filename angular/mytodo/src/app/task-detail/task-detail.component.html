@@ -1,0 +1,15 @@
+<div *ngIf="task">
+    <h2>{{task.description}}</h2>
+    <div>
+        <label for="description">Descrição: </label>
+        <input id="description" [(ngModel)]="task.description" placeholder="descrição">
+    </div>
+    <div><span>Prioridade: </span>{{task.priority}}</div>
+    <div><span>Complexidade: </span>{{task.complexity}}</div>
+    <div><span>Criado em: </span>{{task.created_at}}</div>
+    <div><span>Fechada: </span>{{task.status}}</div>
+    <div><span>Concluido em: </span>{{task.finished_at}}</div>
+    <div><span>Duração (horas): </span>{{task.time}}</div>
+</div>
+<button (click)="save()">Save</button>
+<button (click)="goBack()">Go Back</button>

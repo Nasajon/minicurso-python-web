@@ -1,0 +1,6 @@
+<h2>Top 5 Tasks</h2>
+<div class="tasks-menu">
+    <a *ngFor="let task of tasks" routerLink="/tasks/{{task.id}}">
+        {{task.description}}
+    </a>
+</div>

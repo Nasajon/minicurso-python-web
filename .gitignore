@@ -1,0 +1,49 @@
+backend_django/.venv/*
+.pyc
+__pycache__
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+angular/mytodo/dist
+angular/mytodo/tmp
+angular/mytodo/out-tsc
+# Only exists if Bazel was run
+angular/mytodo/bazel-out
+
+# dependencies
+angular/mytodo/node_modules/*
+
+# profiling files
+chrome-profiler-events*.json
+
+# IDEs and editors
+angular/mytodo/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+angular/mytodo/.sass-cache
+angular/mytodo/connect.lock
+angular/mytodo/coverage
+angular/mytodo/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+angular/mytodo/typings
+
+# System Files
+.DS_Store
+Thumbs.db
