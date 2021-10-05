@@ -41,9 +41,12 @@ class TasksView(GenericView):
                 return HttpResponse(msg, status=400)
 
             # Inserting into database
-            self._repository.insert_new(task)
+            id = self._repository.insert_new(task)
 
-            return HttpResponse(content='', status=201)
+            # Retrieving inserted task
+            task = self._repository.find_by_id(id)
+
+            return HttpResponse(content=json_dumps(task), status=200)
         except Exception as e:
             msg = '{"message": "Unknown error listing tasks: ' + str(e) + '"}'
             return HttpResponse(content=msg, status=500)

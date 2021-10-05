@@ -47,4 +47,20 @@ export class TaskService {
       catchError(this.handleError<any>('updateTask'))
     );
   }
+
+  /** POST: add a new task to the server */
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.tasksUrl, task, this.httpOptions).pipe(
+      catchError(this.handleError<Task>('addTask'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteTask(id: string): Observable<Task> {
+    const url = `${this.tasksUrl}/${id}`;
+
+    return this.http.delete<Task>(url, this.httpOptions).pipe(
+      catchError(this.handleError<Task>('deleteTask'))
+    );
+  }
 }

@@ -85,3 +85,21 @@ class TaskView(GenericView):
             msg = '{"message": "Unknown error updating task status: ' + \
                 str(e) + '"}'
             return HttpResponse(content=msg, status=500)
+
+    def delete(self, request, *args, **kwargs):
+
+        try:
+            # Getting ID
+            id = kwargs["id"]
+
+            # Deleting
+            count = self._repository.delete_by_id(id)
+
+            if count <= 0:
+                return HttpResponse('', status=404)
+
+            return HttpResponse('', status=204, content_type='application/json')
+        except Exception as e:
+            msg = '{"message": "Unknown error deleting task: ' + \
+                str(e) + '"}'
+            return HttpResponse(content=msg, status=500)

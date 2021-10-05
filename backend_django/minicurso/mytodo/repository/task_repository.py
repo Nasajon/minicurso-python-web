@@ -70,6 +70,8 @@ class TaskRepository(AbstractRepository):
         if count <= 0:
             raise Exception(f'Error inserting new task ({id}): {task}')
 
+        return id
+
     def update(self, id: str, task: Dict[str, Any]):
         sql = """
         update task set
@@ -125,3 +127,9 @@ class TaskRepository(AbstractRepository):
         self.execute(sql, {'id': id})
 
         return 0
+
+    def delete_by_id(self, id: str):
+        sql = """
+        delete from task where id = :id
+        """
+        return self.execute(sql, {'id': id})
